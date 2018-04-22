@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Otlob</string>
+
+    <string name="login">تسجيل الدخول</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="password">كلمة السر</string>
+    <string name="enter">دخول</string>
+
+    <string name="new_account">حساب جديد</string>
+    <string name="name">الاسم</string>
+    <string name="retype_password">اعادة كلمة السر</string>
+    <string name="phone">رقم التليفون</string>
+    <string name="city">المدينة</string>
+    <string name="country">المنطقة</string>
+    <string name="create">انشاء</string>
+    <string name="have_account">لديك حساب؟</string>
+    <string name="not_have_account">ليس لديك حساب؟</string>
+    <string name="create_account">انشاء حساب</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_map">الخريطة</string>
+    <string name="title_profile">البروفايل</string>
+
+    <string name="worker">مقدم خدمة</string>
+    <string name="user">طالب خدمة</string>
+
+    <string name="address">العنوان</string>
+    <string name="time">الوقت المتاح</string>
+    <string name="desc">نبذة مختصرة</string>
+    <string name="choose_job">اختر مهنتك</string>
+</resources>
