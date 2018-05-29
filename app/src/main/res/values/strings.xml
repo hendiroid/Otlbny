@@ -6,6 +6,8 @@
     <string name="password">كلمة السر</string>
     <string name="enter">دخول</string>
 
+    <string name="skip">تخطي</string>
+
     <string name="new_account">حساب جديد</string>
     <string name="name">الاسم</string>
     <string name="retype_password">اعادة كلمة السر</string>
@@ -28,4 +30,15 @@
     <string name="time">الوقت المتاح</string>
     <string name="desc">نبذة مختصرة</string>
     <string name="choose_job">اختر مهنتك</string>
+
+    <string name="suggestions">شكاوى واقتراحات</string>
+    <string name="about">عن التطبيق</string>
+    <string name="account_setting">اعدادات الحساب</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="save_changes">حفظ التعديلات</string>
+    <string name="change_password">تغيير كلمة السر</string>
+
+    <string name="search">ابحث عن خدمة</string>
+
+    <string name="carpenter">نجار</string>
 </resources>

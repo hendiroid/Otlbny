@@ -11,20 +11,21 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_bold"
         android:text="@string/new_account"
         android:textColor="@color/colorPrimaryDarker"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/nameET"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text"
+        android:fontFamily="@font/cairo_light"
         android:hint="@string/name"
         android:inputType="textPersonName"
         android:paddingEnd="50dp"
@@ -43,9 +44,9 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/user_blue"
-        app:layout_constraintBottom_toBottomOf="@+id/editText2"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintTop_toTopOf="@+id/editText2" />
+        app:layout_constraintBottom_toBottomOf="@+id/nameET"
+        app:layout_constraintEnd_toEndOf="@+id/nameET"
+        app:layout_constraintTop_toTopOf="@+id/nameET" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -53,6 +54,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text"
+        android:fontFamily="@font/cairo_light"
         android:gravity="end"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -61,9 +63,9 @@
         android:paddingStart="50dp"
         android:textColor="@color/colorPrimaryDarker"
         android:textColorHint="@color/colorPrimaryDarker"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintEnd_toEndOf="@+id/nameET"
+        app:layout_constraintStart_toStartOf="@+id/nameET"
+        app:layout_constraintTop_toBottomOf="@+id/nameET" />
 
     <ImageView
         android:layout_width="26dp"
@@ -83,6 +85,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text"
+        android:fontFamily="@font/cairo_light"
         android:gravity="end"
         android:hint="@string/retype_password"
         android:inputType="textPassword"
@@ -108,11 +111,12 @@
         app:layout_constraintTop_toTopOf="@+id/retypePasswordEditText" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/phoneET"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text"
+        android:fontFamily="@font/cairo_light"
         android:gravity="end"
         android:hint="@string/phone"
         android:inputType="phone"
@@ -133,18 +137,19 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/phone_gray"
-        app:layout_constraintBottom_toBottomOf="@+id/editText4"
-        app:layout_constraintEnd_toEndOf="@+id/editText4"
-        app:layout_constraintTop_toTopOf="@+id/editText4" />
+        app:layout_constraintBottom_toBottomOf="@+id/phoneET"
+        app:layout_constraintEnd_toEndOf="@+id/phoneET"
+        app:layout_constraintTop_toTopOf="@+id/phoneET" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/cityET"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginLeft="55dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text"
+        android:fontFamily="@font/cairo_light"
         android:hint="@string/city"
         android:inputType="text"
         android:padding="12dp"
@@ -152,9 +157,9 @@
         android:paddingStart="50dp"
         android:textColor="@color/colorPrimaryDarker"
         android:textColorHint="@color/colorPrimaryDarker"
-        app:layout_constraintEnd_toEndOf="@+id/editText4"
-        app:layout_constraintStart_toStartOf="@+id/editText4"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintEnd_toEndOf="@+id/phoneET"
+        app:layout_constraintStart_toStartOf="@+id/phoneET"
+        app:layout_constraintTop_toBottomOf="@+id/phoneET" />
 
     <ImageView
         android:layout_width="26dp"
@@ -164,9 +169,9 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/location_blue"
-        app:layout_constraintBottom_toBottomOf="@+id/editText5"
-        app:layout_constraintEnd_toEndOf="@+id/editText5"
-        app:layout_constraintTop_toTopOf="@+id/editText5" />
+        app:layout_constraintBottom_toBottomOf="@+id/cityET"
+        app:layout_constraintEnd_toEndOf="@+id/cityET"
+        app:layout_constraintTop_toTopOf="@+id/cityET" />
 
     <ImageView
         android:layout_width="45dp"
@@ -179,16 +184,17 @@
         android:background="@drawable/circle_blue"
         android:scaleType="fitCenter"
         android:src="@drawable/placeholder_white"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
-        app:layout_constraintStart_toStartOf="@+id/editText4"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintEnd_toStartOf="@+id/cityET"
+        app:layout_constraintStart_toStartOf="@+id/phoneET"
+        app:layout_constraintTop_toBottomOf="@+id/phoneET" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/placeET"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text"
+        android:fontFamily="@font/cairo_light"
         android:hint="@string/country"
         android:inputType="text"
         android:padding="12dp"
@@ -196,9 +202,9 @@
         android:paddingStart="50dp"
         android:textColor="@color/colorPrimaryDarker"
         android:textColorHint="@color/colorPrimaryDarker"
-        app:layout_constraintEnd_toEndOf="@+id/editText5"
+        app:layout_constraintEnd_toEndOf="@+id/cityET"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/cityET" />
 
     <ImageView
         android:layout_width="26dp"
@@ -208,23 +214,24 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/location_blue"
-        app:layout_constraintBottom_toBottomOf="@+id/editText6"
-        app:layout_constraintEnd_toEndOf="@+id/editText6"
-        app:layout_constraintTop_toTopOf="@+id/editText6" />
+        app:layout_constraintBottom_toBottomOf="@+id/placeET"
+        app:layout_constraintEnd_toEndOf="@+id/placeET"
+        app:layout_constraintTop_toTopOf="@+id/placeET" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/createBT"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_blue"
+        android:fontFamily="@font/cairo_bold"
         android:text="@string/create"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/placeET" />
 
     <TextView
         android:id="@+id/textView5"
@@ -232,22 +239,23 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="92dp"
         android:layout_marginRight="92dp"
-        android:layout_marginTop="8dp"
+        android:fontFamily="@font/cairo_light"
         android:text="@string/have_account"
+        android:textColor="@color/colorPrimaryDarker"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/createBT" />
 
     <TextView
         android:id="@+id/loginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:fontFamily="@font/cairo_light"
         android:text="@string/login"
         android:textColor="@color/colorPrimaryDarker"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/createBT" />
 
 </android.support.constraint.ConstraintLayout>

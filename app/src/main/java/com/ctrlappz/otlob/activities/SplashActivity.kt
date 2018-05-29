@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ctrlappz.otlob.R
+import com.ctrlappz.otlob.utils.ProfileInfo
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.item_splash.view.*
 
@@ -22,21 +23,49 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this@SplashActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(this@SplashActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                 requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION), 10)
 
-
             } else if (ActivityCompat.checkSelfPermission(this@SplashActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 10)
             }
         }
 
-        viewPager.adapter = SectionsPageAdapter(supportFragmentManager)
-        loginBT.setOnClickListener {
+        val apiToken = ProfileInfo(this@SplashActivity).getInformation("apiToken")
+        if (apiToken == null) {
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            finish()
+        } else {
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+        }
+
+        viewPager.adapter = SectionsPageAdapter(supportFragmentManager)
+        tabDots.setupWithViewPager(viewPager)
+
+        if (viewPager.currentItem == 3) {
+            loginBT.visibility = View.VISIBLE
+        } else {
+            loginBT.visibility = View.GONE
+
+        }
+
+        nextIV.setOnClickListener {
+            viewPager.currentItem++
+        }
+        loginBT.setOnClickListener {
+            startActivity(Intent(this@SplashActivity, StartActivity::class.java))
+            finish()
+        }
+
+        skipTV.setOnClickListener {
+            startActivity(Intent(this@SplashActivity, StartActivity::class.java))
             finish()
         }
 
@@ -67,8 +96,6 @@ class SplashActivity : AppCompatActivity() {
                 }
                 3 -> {
                     rootView.pagerImages.setImageResource(R.drawable.splash3)
-                    loginBT.visibility = View.VISIBLE
-
                 }
             }
 

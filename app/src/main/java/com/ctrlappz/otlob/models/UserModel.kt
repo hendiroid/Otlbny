@@ -8,5 +8,4 @@ class UserModel {
     var apiToken: String? = null
     var phone: String? = null
     var image: String? = null
-    var approved: Boolean? = null
 }
