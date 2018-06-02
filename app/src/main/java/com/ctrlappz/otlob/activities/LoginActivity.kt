@@ -24,6 +24,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
+
+    lateinit var type: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -65,22 +68,30 @@ class LoginActivity : AppCompatActivity() {
 
         })
 
+        type = intent.extras!!.getString("type")
+
         createAccountTV.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, StartActivity::class.java))
+            if (type == "worker") {
+                startActivity(Intent(this@LoginActivity, NewAccountWorkerActivity::class.java))
+
+            } else {
+                startActivity(Intent(this@LoginActivity, SignActivity::class.java))
+
+            }
         }
 
         sign_button.setOnClickListener {
-//            val email = email_edit.text.toString().trim()
-//            val password = passwordET.text.toString().trim()
-//
-//            val postBody = HashMap<String, String>()
-//            postBody["email"] = email
-//            postBody["password"] = password
-//
-//            login(postBody)
+            val email = email_edit.text.toString().trim()
+            val password = passwordET.text.toString().trim()
 
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-            finish()
+            val postBody = HashMap<String, String>()
+            postBody["email"] = email
+            postBody["password"] = password
+
+            login(postBody)
+
+//            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+//            finish()
 
         }
     }

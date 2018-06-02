@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
         when (item!!.itemId) {
             R.id.action_suggestion -> startActivity(Intent(this@MainActivity, SuggestionActivity::class.java))
             R.id.action_about -> startActivity(Intent(this@MainActivity, AboutActivity::class.java))
-//            R.id.change_password -> startActivity(Intent(this@MainActivity, ChangePasswordActivity::class.java))
-//            R.id.action_account_setting -> startActivity(Intent(this@MainActivity, AccountSettingActivity::class.java))
+            R.id.change_password -> startActivity(Intent(this@MainActivity, ChangePasswordActivity::class.java))
+            R.id.action_account_setting -> startActivity(Intent(this@MainActivity, AccountSettingActivity::class.java))
             R.id.action_logout -> logout()
         }
         return false
@@ -75,39 +75,15 @@ class MainActivity : AppCompatActivity() {
         val dialog = Helper.progressDialog(this@MainActivity, " Signing out...")
         dialog.show()
         val profileInformation = ProfileInfo(this@MainActivity)
-        val apiToken = profileInformation.getInformation("apiToken")
 
-        val retrofit = Retrofit.Builder()
-                .baseUrl(Links.URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        val playerId = "test"
+        val map = HashMap<String, String?>()
+        map["apiToken"] = null
 
-        val authApi = retrofit.create(AuthApi::class.java)
-        val connection = authApi.logout(playerId, "Bearer $apiToken", Links.API)
-        connection.enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>?, response: Response<ResponseBody>?) {
-                if (response!!.isSuccessful) {
-                    val map = HashMap<String, String?>()
-                    map["apiToken"] = null
+        dialog.dismiss()
+        profileInformation.saveInformation(map)
+        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        finish()
 
-                    profileInformation.saveInformation(map)
-                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-                    finish()
-
-                } else {
-                    dialog.dismiss()
-                    Helper.getErrorMessage(this@MainActivity, response)
-                }
-
-            }
-
-            override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
-                dialog.dismiss()
-                Toast.makeText(this@MainActivity, "Error", Toast.LENGTH_LONG).show()
-            }
-
-        })
 
     }
 }

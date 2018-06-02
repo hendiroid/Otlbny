@@ -42,4 +42,9 @@
 
     <string name="carpenter">نجار</string>
     <string name="send">ارسال</string>
+    <string name="done">تم</string>
+    <string name="old_password">كلمة السر القديمة</string>
+    <string name="new_password">كلمة السر الجديدة</string>
+
+    <string name="rates">تقييمات</string>
 </resources>

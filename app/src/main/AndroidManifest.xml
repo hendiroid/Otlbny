@@ -37,8 +37,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.MainActivity"
-            android:screenOrientation="portrait"
-            android:label=""/>
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.StartActivity"
             android:parentActivityName=".activities.LoginActivity"
@@ -52,6 +52,15 @@
         <activity
             android:name=".activities.SuggestionActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ChangePasswordActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AccountSettingActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".WorkerActivity"></activity>
     </application>
 
 </manifest>
