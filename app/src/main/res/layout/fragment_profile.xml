@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageView"
             android:layout_width="100dp"
@@ -27,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/cairo_bold"
+            android:text="خالد علي"
             android:textColor="@color/colorPrimaryDarker"
             app:layout_constraintEnd_toEndOf="@+id/circleImageView"
             app:layout_constraintStart_toStartOf="@+id/circleImageView"
@@ -80,6 +80,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:fontFamily="@font/cairo_light"
+                android:text="المنصورة , شارع عبدالسلام عارف"
                 android:textColor="@color/colorPrimaryDarker"
                 android:textStyle="bold" />
 
@@ -129,6 +130,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:fontFamily="@font/cairo_light"
+                android:text="01025478954"
                 android:textColor="@color/colorPrimaryDarker"
                 android:textStyle="bold" />
 
@@ -168,7 +170,6 @@
                     android:layout_height="20dp"
                     android:src="@drawable/clock_gray" />
 
-
             </LinearLayout>
 
             <TextView
@@ -177,6 +178,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:fontFamily="@font/cairo_light"
+                android:text="08:00AM , 10:00PM"
                 android:textColor="@color/colorPrimaryDarker"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -223,6 +225,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:fontFamily="@font/cairo_light"
+                android:text="كهربائي سيارات"
                 android:textColor="@color/colorPrimaryDarker"
                 android:textStyle="bold" />
         </LinearLayout>

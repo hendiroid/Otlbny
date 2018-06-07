@@ -1,5 +1,7 @@
 package com.ctrlappz.otlob.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.ctrlappz.otlob.R
+import com.ctrlappz.otlob.activities.WorkersActivity
 import com.ctrlappz.otlob.models.CategoryModel
 import com.squareup.picasso.Picasso
 
-class CategoriesAdapter(private val category: ArrayList<CategoryModel>) : RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>() {
+class CategoriesAdapter(private val category: ArrayList<CategoryModel>, private val context: Context) : RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CategoriesHolder {
         val itemView = LayoutInflater.from(parent!!.context).inflate(R.layout.item_category, parent, false)
@@ -21,8 +24,10 @@ class CategoriesAdapter(private val category: ArrayList<CategoryModel>) : Recycl
         val category = category[position]
         holder!!.nameTV.text = category.name
         Picasso.get().load(category.image).into(holder.catIV)
-
         holder.itemView.setOnClickListener {
+            val intent = Intent(context, WorkersActivity::class.java)
+            intent.putExtra("id", category.id)
+            context.startActivity(intent)
 
         }
 

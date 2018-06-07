@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-
         val dialog = Helper.progressDialog(this@MainActivity, " Signing out...")
         dialog.show()
         val profileInformation = ProfileInfo(this@MainActivity)
@@ -83,7 +82,5 @@ class MainActivity : AppCompatActivity() {
         profileInformation.saveInformation(map)
         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         finish()
-
-
     }
 }

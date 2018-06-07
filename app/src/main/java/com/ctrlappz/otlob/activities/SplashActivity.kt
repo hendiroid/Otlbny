@@ -14,7 +14,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ctrlappz.otlob.R
-import com.ctrlappz.otlob.utils.ProfileInfo
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.item_splash.view.*
 
@@ -35,15 +34,6 @@ class SplashActivity : AppCompatActivity() {
             } else if (ActivityCompat.checkSelfPermission(this@SplashActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 10)
             }
-        }
-
-        val apiToken = ProfileInfo(this@SplashActivity).getInformation("apiToken")
-        if (apiToken == null) {
-            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-            finish()
-        } else {
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-            finish()
         }
 
         viewPager.adapter = SectionsPageAdapter(supportFragmentManager)

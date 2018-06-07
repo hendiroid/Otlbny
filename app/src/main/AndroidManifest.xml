@@ -60,7 +60,11 @@
             android:name=".activities.AccountSettingActivity"
             android:parentActivityName=".activities.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".WorkerActivity"></activity>
+        <activity android:name=".activities.WorkerActivity" />
+        <activity android:name=".activities.WorkersActivity" />
+        <activity
+            android:name=".activities.MapsActivity"
+            android:label="" />
     </application>
 
 </manifest>

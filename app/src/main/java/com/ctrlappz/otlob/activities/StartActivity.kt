@@ -18,15 +18,12 @@ class StartActivity : AppCompatActivity() {
             intent.putExtra("type", "worker")
             startActivity(intent)
             finish()
-
         }
-
         user.setOnClickListener {
             val intent = Intent(this@StartActivity, LoginActivity::class.java)
             intent.putExtra("type", "user")
             startActivity(intent)
             finish()
-
         }
     }
 }

@@ -2,10 +2,16 @@ package com.ctrlappz.otlob.models
 
 class UserModel {
 
-    var id: String? = null
-    var name: String? = null
-    var email: String? = null
-    var apiToken: String? = null
-    var phone: String? = null
-    var image: String? = null
+    lateinit var id: String
+    lateinit var name: String
+    lateinit var email: String
+    lateinit var apiToken: String
+    lateinit var phone: String
+    lateinit var image: String
+    lateinit var city: String
+    lateinit var address: String
+    var longitude: Double? = null
+    var latitude: Double? = null
+
+
 }

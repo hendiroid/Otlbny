@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".activities.NewAccountWorkerActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -207,19 +208,20 @@
             app:layout_constraintTop_toTopOf="@+id/cityET" />
 
         <ImageView
+            android:id="@+id/locationIV"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
             android:background="@drawable/circle_blue"
             android:scaleType="fitCenter"
             android:src="@drawable/placeholder_white"
+            app:layout_constraintBottom_toBottomOf="@+id/cityET"
             app:layout_constraintEnd_toStartOf="@+id/cityET"
             app:layout_constraintStart_toStartOf="@+id/phoneET"
-            app:layout_constraintTop_toBottomOf="@+id/phoneET" />
+            app:layout_constraintTop_toTopOf="@+id/cityET" />
 
         <EditText
             android:id="@+id/placeET"
@@ -287,6 +289,7 @@
             android:layout_marginEnd="92dp"
             android:layout_marginRight="92dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/cairo_regular"
             android:text="@string/have_account"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -298,6 +301,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/cairo_bold"
             android:text="@string/login"
             android:textColor="@color/colorPrimaryDarker"
             android:textStyle="bold"
