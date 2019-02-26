@@ -11,16 +11,16 @@ class WorkerModel {
     lateinit var phone: String
     lateinit var image: String
     lateinit var city: String
-    lateinit var address: String
+    var address: String? = null
 
     @SerializedName("service_id")
     @Expose
     lateinit var service: String
-    lateinit var bio: String
+    var bio: String? = null
 
     @SerializedName("work_hours")
     @Expose
-    lateinit var hours: String
+    var hours: String? = null
 
     var longitude: Double? = null
     var latitude: Double? = null

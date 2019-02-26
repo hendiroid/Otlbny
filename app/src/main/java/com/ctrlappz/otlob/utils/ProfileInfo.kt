@@ -14,7 +14,6 @@ class ProfileInfo constructor(context: Context) {
         sharedPreferences = context.getSharedPreferences("profile_info", MODE_PRIVATE)
     }
 
-
     fun saveInformation(map: HashMap<String, String?>) {
         val editor = sharedPreferences!!.edit()
 

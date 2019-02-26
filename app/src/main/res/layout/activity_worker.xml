@@ -48,8 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:progressTint="#ffdc5e"
-                    android:rating="5" />
+                    android:progressTint="#ffdc5e" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -73,6 +72,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
+                        android:maxLines="1"
                         android:fontFamily="@font/cairo_light"
                         android:textColor="@color/colorPrimaryDarker" />
 
@@ -169,7 +169,7 @@
 
                     <TextView
                         android:id="@+id/bioTV"
-                        android:layout_width="wrap_content"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
@@ -182,7 +182,7 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/circle_yellow"
                         android:src="@drawable/mechanic" />
 

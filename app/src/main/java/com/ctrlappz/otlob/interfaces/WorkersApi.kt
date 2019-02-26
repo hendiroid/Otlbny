@@ -15,4 +15,9 @@ interface WorkersApi {
     @GET
     fun getWorker(@Url url: String): Call<WorkerModel>
 
+
+    @FormUrlEncoded
+    @POST
+    fun updateInfo(@FieldMap postBody: Map<String, String>, @Url url: String): Call<WorkerModel>
+
 }

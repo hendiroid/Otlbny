@@ -66,6 +66,10 @@ class NewAccountWorkerActivity : AppCompatActivity() {
                     Toast.makeText(this@NewAccountWorkerActivity, "قم باختيار مهنتك", Toast.LENGTH_LONG).show()
                 } else {
                     id = categoriesAdapter.selectedCategory!!.id
+                    val name = categoriesAdapter.selectedCategory!!.name
+                    val map = HashMap<String, String?>()
+                    map["job"] = name
+                    ProfileInfo(this@NewAccountWorkerActivity).saveInformation(map)
                     dialog.dismiss()
                 }
 
@@ -85,18 +89,23 @@ class NewAccountWorkerActivity : AppCompatActivity() {
             if (password != retypePassword) {
                 Toast.makeText(this@NewAccountWorkerActivity, "password and retype password not matches", Toast.LENGTH_LONG).show()
             } else {
-                val postBody = HashMap<String, String>()
-                postBody["name"] = name
-                postBody["email"] = email
-                postBody["password"] = password
-                postBody["phone"] = phone
-                postBody["city"] = city
-                postBody["place"] = place
-                postBody["service_id"] = id
-                postBody["longitude"] = lng.toString()
-                postBody["latitude"] = lat.toString()
+                if (id == "") {
+                    Toast.makeText(this@NewAccountWorkerActivity, "قم باختيار مهنتك", Toast.LENGTH_LONG).show()
+                } else {
+                    val postBody = HashMap<String, String>()
+                    postBody["name"] = name
+                    postBody["email"] = email
+                    postBody["password"] = password
+                    postBody["phone"] = phone
+                    postBody["city"] = city
+                    postBody["place"] = place
+                    postBody["service_id"] = id
+                    postBody["longitude"] = lng.toString()
+                    postBody["latitude"] = lat.toString()
+                    postBody["work_hours"] = "0"
 
-                signUp(postBody)
+                    signUp(postBody)
+                }
             }
         }
     }
@@ -139,6 +148,10 @@ class NewAccountWorkerActivity : AppCompatActivity() {
                     val image = userModel?.image
                     val phone = userModel?.phone
                     val email = userModel?.email
+                    val city = userModel?.city
+                    val address = userModel?.address
+                    val bio = userModel?.bio
+                    val hours = userModel?.hours
 
                     val map = HashMap<String, String?>()
                     map["id"] = id
@@ -147,6 +160,11 @@ class NewAccountWorkerActivity : AppCompatActivity() {
                     map["profile"] = image
                     map["phone"] = phone
                     map["email"] = email
+                    map["city"] = city
+                    map["address"] = address
+                    map["bio"] = bio
+                    map["work_hours"] = hours
+
                     val profileInfo = ProfileInfo(applicationContext)
                     profileInfo.saveInformation(map)
                     startActivity(Intent(this@NewAccountWorkerActivity, MainActivity::class.java))

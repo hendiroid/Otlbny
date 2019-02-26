@@ -26,6 +26,7 @@ class WorkerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_worker)
         id = intent.extras!!.getString("id")
+
         getWorker(id)
     }
 
@@ -41,8 +42,8 @@ class WorkerActivity : AppCompatActivity() {
             override fun onResponse(call: Call<WorkerModel>?, response: Response<WorkerModel>?) {
                 if (response!!.isSuccessful) {
                     val worker = response.body()
-                    workerRate.rating = worker?.rate!!
-                    workerNameTV.text = worker.name
+//                    workerRate.rating = worker?.rate!!
+                    workerNameTV.text = worker!!.name
                     phoneTV.text = worker.phone
                     emailTV.text = worker.email
                     addressTV.text = worker.address
@@ -59,6 +60,10 @@ class WorkerActivity : AppCompatActivity() {
                         val intent = Intent(Intent.ACTION_DIAL)
                         intent.data = Uri.parse("tel:${worker.phone}")
                         startActivity(intent)
+                    }
+                    emailTV.setOnClickListener {
+                        val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", worker.email, null))
+                        startActivity(Intent.createChooser(emailIntent, "Send email..."))
                     }
                 } else {
                     Helper.getErrorMessage(this@WorkerActivity, response)

@@ -9,7 +9,7 @@ class UserModel {
     lateinit var phone: String
     lateinit var image: String
     lateinit var city: String
-    lateinit var address: String
+    var address: String? = null
     var longitude: Double? = null
     var latitude: Double? = null
 

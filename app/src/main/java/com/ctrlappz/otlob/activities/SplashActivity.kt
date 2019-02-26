@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ctrlappz.otlob.R
+import com.ctrlappz.otlob.utils.ProfileInfo
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.item_splash.view.*
 
@@ -25,6 +26,12 @@ class SplashActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
+        val apiToken = ProfileInfo(this@SplashActivity).getInformation("apiToken")
+        if (apiToken != null) {
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this@SplashActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(this@SplashActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

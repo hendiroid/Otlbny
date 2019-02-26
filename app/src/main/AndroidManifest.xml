@@ -30,6 +30,7 @@
         <activity
             android:name=".activities.LoginActivity"
             android:parentActivityName=".activities.SplashActivity"
+            android:label=""
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.SignActivity"
@@ -41,30 +42,37 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.StartActivity"
-            android:parentActivityName=".activities.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.NewAccountWorkerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AboutActivity"
-            android:screenOrientation="portrait" />
+            android:label="@string/about"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.MainActivity"/>
         <activity
             android:name=".activities.SuggestionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.ChangePasswordActivity"
+            android:label="@string/suggestions"
             android:parentActivityName=".activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AccountSettingActivity"
             android:parentActivityName=".activities.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.WorkerActivity" />
-        <activity android:name=".activities.WorkersActivity" />
+        <activity
+            android:name=".activities.WorkerActivity"
+            android:label=""
+            android:parentActivityName=".activities.WorkersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.WorkersActivity"
+            android:label=""
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.MapsActivity"
-            android:label="" />
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

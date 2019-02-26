@@ -7,36 +7,22 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.ctrlappz.otlob.R
 import com.ctrlappz.otlob.fragments.HomeFragment
 import com.ctrlappz.otlob.fragments.MapFragment
 import com.ctrlappz.otlob.fragments.ProfileFragment
-import com.ctrlappz.otlob.interfaces.AuthApi
 import com.ctrlappz.otlob.utils.Helper
-import com.ctrlappz.otlob.utils.Links
 import com.ctrlappz.otlob.utils.ProfileInfo
 import kotlinx.android.synthetic.main.activity_main.*
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+
 
 class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                openFrag(HomeFragment())
-            }
-            R.id.navigation_map -> {
-                openFrag(MapFragment())
-            }
-            R.id.navigation_profile -> {
-                openFrag(ProfileFragment())
-            }
+            R.id.navigation_home -> { openFrag(HomeFragment()) }
+            R.id.navigation_map -> { openFrag(MapFragment()) }
+            R.id.navigation_profile -> { openFrag(ProfileFragment()) }
         }
         true
     }
@@ -58,12 +44,10 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
             R.id.action_suggestion -> startActivity(Intent(this@MainActivity, SuggestionActivity::class.java))
             R.id.action_about -> startActivity(Intent(this@MainActivity, AboutActivity::class.java))
-            R.id.change_password -> startActivity(Intent(this@MainActivity, ChangePasswordActivity::class.java))
             R.id.action_account_setting -> startActivity(Intent(this@MainActivity, AccountSettingActivity::class.java))
             R.id.action_logout -> logout()
         }
@@ -71,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        val dialog = Helper.progressDialog(this@MainActivity, " Signing out...")
+        val dialog = Helper.progressDialog(this@MainActivity, "تسجيل الخروج...")
         dialog.show()
         val profileInformation = ProfileInfo(this@MainActivity)
 
@@ -80,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         dialog.dismiss()
         profileInformation.saveInformation(map)
-        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        startActivity(Intent(this@MainActivity, SplashActivity::class.java))
         finish()
     }
 }

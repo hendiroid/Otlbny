@@ -4,12 +4,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.inputmethod.EditorInfo
 import com.ctrlappz.otlob.R
 import com.ctrlappz.otlob.adapters.WorkersAdapter
 import com.ctrlappz.otlob.interfaces.WorkersApi
 import com.ctrlappz.otlob.models.WorkerModel
 import com.ctrlappz.otlob.utils.Helper
 import com.ctrlappz.otlob.utils.Links
+import kotlinx.android.synthetic.main.activity_workers.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,9 +38,24 @@ class WorkersActivity : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         workerApi = retrofit.create<WorkersApi>(WorkersApi::class.java)
+
+        searchSV.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                val searchList = workersList.filter { workerModel ->
+                    workerModel.name.contains(v.text.toString())
+                }
+
+                recyclerView.layoutManager = LinearLayoutManager(this@WorkersActivity)
+                recyclerView.adapter = WorkersAdapter(ArrayList(searchList), this@WorkersActivity)
+                true
+            } else {
+                false
+            }
+        }
         id = intent.extras!!.getString("id")
         getWorkers(id)
     }
+
     private fun getWorkers(id: String) {
         val connection = workerApi.getWorkersInCategory(Links.API +
                 Links.WORKERS + "?service_id=" + id)
@@ -53,6 +70,7 @@ class WorkersActivity : AppCompatActivity() {
                     Helper.getErrorMessage(this@WorkersActivity, response)
                 }
             }
+
             override fun onFailure(call: Call<ArrayList<WorkerModel>>?, t: Throwable?) {
             }
         })

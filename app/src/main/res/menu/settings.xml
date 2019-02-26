@@ -13,10 +13,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/change_password"
-        android:title="@string/change_password"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_account_setting"
         android:title="@string/account_setting"
         app:showAsAction="never" />

@@ -86,6 +86,8 @@ class SignActivity : AppCompatActivity() {
                     val image = userModel?.image
                     val phone = userModel?.phone
                     val email = userModel?.email
+                    val city = userModel?.city
+                    val address = userModel?.address
 
                     val map = HashMap<String, String?>()
                     map["id"] = id
@@ -94,6 +96,8 @@ class SignActivity : AppCompatActivity() {
                     map["profile"] = image
                     map["phone"] = phone
                     map["email"] = email
+                    map["city"] = city
+                    map["address"] = address
 
                     val profileInfo = ProfileInfo(applicationContext)
                     profileInfo.saveInformation(map)

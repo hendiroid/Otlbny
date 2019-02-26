@@ -21,21 +21,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var lat: Double = 0.0
     private var lng: Double = 0.0
 
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        val mapFragment = supportFragmentManager
-//                .findFragmentById(R.id.map) as SupportMapFragment
+
         map.onCreate(savedInstanceState)
         map.onResume()
-        map.getMapAsync(this)
+        map.getMapAsync { googleMap ->
+            googleMap.isMyLocationEnabled = true
+        }
 
         doneBT.setOnClickListener {
             val intent = Intent()
             intent.putExtra("lat", lat)
             intent.putExtra("lng", lng)
-            setResult(Activity.RESULT_OK,intent)
+            setResult(Activity.RESULT_OK, intent)
             finish()
         }
     }

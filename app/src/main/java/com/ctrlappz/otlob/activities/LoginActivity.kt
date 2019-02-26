@@ -82,7 +82,6 @@ class LoginActivity : AppCompatActivity() {
 
             } else {
                 startActivity(Intent(this@LoginActivity, SignActivity::class.java))
-
             }
         }
 
@@ -100,12 +99,10 @@ class LoginActivity : AppCompatActivity() {
                 login(postBody)
 
             }
-
         }
     }
 
     private fun login(postBody: Map<String, String>) {
-
         val dialog = Helper.progressDialog(this@LoginActivity, "دخول...")
         dialog.show()
 
@@ -129,6 +126,8 @@ class LoginActivity : AppCompatActivity() {
                     val image = userModel?.image
                     val phone = userModel?.phone
                     val email = userModel?.email
+                    val city = userModel?.city
+                    val address = userModel?.address
 
                     val map = HashMap<String, String?>()
                     map["id"] = id
@@ -137,6 +136,8 @@ class LoginActivity : AppCompatActivity() {
                     map["profile"] = image
                     map["phone"] = phone
                     map["email"] = email
+                    map["city"] = city
+                    map["address"] = address
 
                     val profileInfo = ProfileInfo(applicationContext)
                     profileInfo.saveInformation(map)
@@ -185,6 +186,7 @@ class LoginActivity : AppCompatActivity() {
                     val email = userModel?.email
                     val bio = userModel?.bio
                     val hours = userModel?.hours
+                    val city = userModel?.city
                     val address = userModel?.address
 
                     val map = HashMap<String, String?>()
@@ -197,6 +199,7 @@ class LoginActivity : AppCompatActivity() {
                     map["bio"] = bio
                     map["work_hours"] = hours
                     map["address"] = address
+                    map["city"] = city
 
                     val profileInfo = ProfileInfo(applicationContext)
                     profileInfo.saveInformation(map)
@@ -213,9 +216,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onFailure(call: Call<WorkerModel>?, t: Throwable?) {
                 dialog.dismiss()
             }
-
         })
-
     }
 
     private fun ifViewEmpty() {
